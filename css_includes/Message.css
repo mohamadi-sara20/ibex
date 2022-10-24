@@ -1,8 +1,46 @@
 .message {
     font-size: medium;
     width: 40em;
+    margin:auto;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 0 !important;
+
 }
 
-.continue-link { text-decoration: none; color: blue; }
-.continue-link:hover { text-decoration: underline; color: blue; }
-.continue-link:visited { color: blue; }
+.continue-link { 
+    text-decoration: none; 
+    color: navy; 
+    font-size:2rem !important;
+    border-radius: 0 !important;
+
+    font-family: Courier;
+    background-color: white; }
+
+.continue-link:hover { 
+    font-family: Courier;
+    font-size:2rem !important;
+    border-radius: 0 !important;
+
+    text-decoration: underline; 
+    color: navy; 
+}
+
+.continue-link:visited { 
+    font-family: Courier;
+    font-size:2rem !important;
+    color: navy; 
+    border-radius: 0 !important;
+
+}
+
+#columnLeft{
+    width: 10%;
+}
+#columnMiddle{
+    width: 80%;
+}
+#columnRight{
+    width: 10%;
+}
+

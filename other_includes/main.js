@@ -445,10 +445,18 @@ function showProgressBar() {
     }
 }
 
+var p_instruction = $(document.createElement("div"))
+        .addClass("practice-instruction")
+        .css('text-align', conf_centerItems ? "left" : "right")
+        .text("Press the space bar to start reading! Each key press reveals the next word in the sentence.");
+$("body").append(p_instruction);  
+
+
 var posInRunningOrder = 0;
 var posInCurrentElementSet = 0;
 var currentUtilsInstance = null;
 var currentElementOptions = null;
+var showInst = undefined;
 // A list of result lines.
 var allResults = [];
 // Array for column names.
@@ -501,6 +509,20 @@ function finishedCallback(resultsLines) {
             updateProgressBar();
         }
     }
+    
+    if ( showInst === undefined) {
+        showInst = 1;
+        var inst_box = $('.practice-instruction')
+        inst_box.css("visibility", "visible")
+        
+    }
+    else {
+        var inst_box = $('.practice-instruction')
+        inst_box.css("visibility", "hidden")
+    }
+    
+    
+    
 
     ++posInCurrentElementSet;
     if (posInCurrentElementSet >= runningOrder[posInRunningOrder].length) {

@@ -1,65 +1,108 @@
-<div style="width: 40em;">
-<p>
-This experiment has two parts. In the first part, you will be required to read
-a number of English sentences one word at a time. You can advance to the next
-word by pressing the space bar.
-</p>
-<p>
-In the second part, you will be asked to &ldquo;rate&rdquo; some sentences
-on a scale of 1-7 (with 1 bad and 7 good).
-</p>
-<p>
-[Privacy statement, etc., etc.]
-</p>
 
-<table>
-<tr>
-<td colspan="2" style="width: 30em; padding-bottom: 1em;">
-<i>(The form below is just a rough example showing all of the input controls that work properly
-with Ibex. Obviously it would not necessarily be appropriate to collect all of this
-data on subjects.)</i>
-</td>
-</tr>
-<tr>
-  <td>Name:</td><td><input name="name" type="text" size="30" class="obligatory" /></td>
-</tr>
-<tr>
-<td colspan="2"><label class="error" for="name"></label></td>
-</tr>
-<tr>
-  <td>Age:</td><td><input name="age" type="text" size="30" class="obligatory" /></td>
-</tr>
-<tr>
-<td colspan="2"><label class="error" for="age"></label></td>
-</tr>
-<tr>
-  <td>Favorite color:</td><td><input name="color" type="radio" value="red" class="obligatory" id="colred" /><label for="colred">Red</label>
-                              <input name="color" type="radio" value="green" id="colgreen"/><label for="colgreen">Green</label>
-                              <input name="color" type="radio" value="blue" id="colblue"/><label for="colblue">Blue</label>
-                              <input name="color" type="radio" value="yellow" id="colyellow"/><label for="colyellow">Yellow</label>
-</tr>
-<tr>
-<td colspan="2"><label class="error" for="sex"></label></td>
-</tr>
-<tr>
-<td colspan="2" style="padding-bottom: 1em;"><input type="checkbox" name="credit" id="creditcx" /><label for="creditcx"> I am doing this experiment for credit</label></td>
-</tr>
-<tr>
-<td colspan="2" style="padding-bottom: 1em;"><input type="checkbox" class="obligatory" name="consent" id="consentcx" /><label for="consentcx"> I consent</label></td>
-</tr>
-<tr>
-<td colspan="2">
-<label class="error" for="consent"></label>
-</td>
-</tr>
-<tr>
-  <td colspan="2">Write something:</td>
-</tr>
-<tr>
-  <td colspan="2">
-    <textarea name="write_something" rows="5" cols="40"></textarea>
+<div class="instruction"style='width: 40em"' style="font-size:33.5vw">
+  <script>
+    function closeModal() {
+      var modal = document.getElementById("ageModal");
+      modal.style.display = "none";
+    }
+    </script>
+    <div id="ageModal" class="modal">
+      <div >
+        <div class="modal-content">
+          <table>
+            <tr>
+              <td>
+                <img id="errorIcon" src="https://img.icons8.com/color/344/error--v3.png" /></td>
+              <td>
+                <p id="errorMsg">Please enter a valid value for age!</p>
+                <p id="errorMsg-footnote">(You must be older than 10 years old to be able to participate)</p>
+              </td>
+            </tr>
+              <span class="close" onclick ="closeModal()">❌</span>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <p>
+    <div id="steps">
+    This experiment is a rather simple one: <br>
+      <ol type="1">
+        <li>You are shown a couple of sentences word by word. Read them <b style="color:#bf0000">at your own natural pace</b>, and try to grasp the exact meaning of each sentence. </li>
+        <li>You can advance to the next word by pressing the <b style="color:#bf0000">space bar</b>. </li>
+        <li>Every now and then, a question pops up. Please choose the correct answer! Should you choose the wrong answer, </li>
+        <li>Please do <b>NOT</b> refresh or go back. In that case, your progress would be lost and you would have to start over. </li>  
+      </ol>
+    </div>
+  </p>
+<p>
+  <br>
+  <div id="expln">
+  <p style="font-size: 0.8rem;">Before you begin the experiment, please fill out the form below:</p>
+</div>
+
+<table >
+  <tr>
+    <td>Name:</td><td><input placeholder="Enter Name"  style="width:100%;font-family:Courier;" name="name" type="text"  class="obligatory" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><label class="error" for="name"></label></td>
+  </tr>
+  <tr>
+    <td>Age:</td><td>
+      <input
+      type="text" 
+      placeholder="Enter Age" 
+      style="width:100%;font-family:Courier;"
+      id="age"  
+      maxlength="2" 
+      pattern="[0-9]{2}" 
+      style="width:100%" 
+      name="age"  
+      class="obligatory" 
+      onchange ="myFunction(this.value)" />
+      <script>
+        function myFunction(val) {
+          var modal = document.getElementById("ageModal");
+          if (!parseInt(val) || parseInt(val) < 10){
+            modal.style.display = "block";
+            $("#age").val("");          
+            } 
+          }
+        </script>
+    </td>
+  </tr>
+  <tr>
+    <td>Gender:</td><td>
+      <input name="sex" type="radio" value="F" class="obligatory" id="female" />
+      <label for="female">Female</label>
+      <input name="sex" type="radio" value="M" id="male"/>
+      <label for="male">Male</label>
+      <input name="sex" type="radio" value="O" id="other"/>
+      <label for="other">Other</label>
+  </tr>
+  <tr>
+    <td colspan="2"><label class="error" for="age"></label></td>
+  </tr>
+    <td colspan="2"><label class="error" for="sex"></label></td>
+  </tr>
+  <tr> 
+    <td colspan="2" style="padding-bottom: 1em;">
+      <div id="expln">
+        <h3>Privacy Policy</h3>
+          <p>We only collect the data you give us; that is, your name, your age, and the answers you give us during the experiment. </p>
+          <p>
+            You can request to have your data deleted within the next two years. If you wish to do so, you can contact us through emailing <i>shahmohammadi at uni-potsdam dot de</i>. 
+          </p>
+          </p>  
+      </div>
+      <input type="checkbox" class="obligatory" name="consent" id="consentcx" />
+      <label for="consentcx"> I consent</label></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <label class="error" for="consent"></label>
   </td>
-</tr>
-</table>
-
+  </tr>
+  </table>
 </div>

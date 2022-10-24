@@ -1,9 +1,15 @@
 body {
     color: black;
-    background-color: white;
+    background-color: #ffd343;
     margin-left: 0;
-    margin-top: 5em;
+    margin-top: 0;
+    font-size: 4rem;
+    font-weight: 600;
+    background-position: 10rem;
+    background: "server.py?include=crowd.jpg";
+    font-family: Courier !important;
 }
+
 .lindent { margin-left: 5em; }
 .sending-results {
     font-weight: bold;
@@ -13,9 +19,11 @@ div.bar-container {
     border: 1px solid;
     border-color: #9ea4b1;
     background-color: white;
+    margin-top: 1rem;
 }
+
 div.bar {
-    background-color: blue;
+    background-color: navy;
 }
 p.progress-text {
     padding-top: 0.5em;
@@ -23,16 +31,18 @@ p.progress-text {
     margin-bottom: 2em;
     font-style: italic;
     font-size: small;
+    font-family: Courier !important;
 }
 p.practice-box {
-    color: blue;
+    color: navy;
     height: 1.5em;
     padding-bottom: 1em;
     font-size: small;
     text-align: center;
+    font-family: Courier !important;
 }
 span.retry {
-    color: blue;
+    color:  navy;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
@@ -41,5 +51,136 @@ span.retry:hover {
     text-decoration: underline;
 }
 span.retry:visited {
-    color: blue;
+    color:  navy;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    border-radius: 25px !important;
+    background-color: #fefefe;
+    margin: 30% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+
+.instruction {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 25px;
+  font-family:'Courier';
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#clickMessage{
+  margin-top: -2rem;
+  padding-left: 3rem;
+  text-align: left;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+#errorIcon{
+  height: auto; 
+  width: auto; 
+  max-width: 100px; 
+  max-height: 100px;
+}
+
+#errorMsg{
+  margin:0.5rem;
+  font-weight: bold;
+  color:#8B0000;
+}
+#errorMsg-footnote{
+  margin:0.5rem;
+  color:#8B0000;
+  font-size:small;
+}
+
+#steps{
+  background-color: #D3D3D3;
+  padding: 1rem;
+  border-radius: 25px;
+  padding-top:1.5rem;
+}
+
+#expln{
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.infoForm tr{
+  margin: 20rem !important;
+}
+
+.practice-instruction {
+color:#bf0000;
+font-size: 1rem;
+background-color: #D3D3D3;
+border-radius: 25px;
+margin: 1rem 1rem 1rem 9rem;
+padding: 1rem;
+width: max-content;
+visibility: hidden;
 }
