@@ -110,7 +110,7 @@ $.ajax({
             if (!id) {
                 $('body').append($('<p>', {
                     text: conf_invalidUrl,
-                    style: "border-radius: 40px; border-style: solid !important; border-color: #bf0000 !important; margin: 15rem; border: 10px; border-color:red; padding: 10rem; font-size: 1.2rem; text-align:center; font-family:Courier; font-weight: bold; background-color:white;"
+                    style: "border-radius: 40px; background-color: #D3D3D3 !important; margin: 15rem; padding: 10rem; font-size: 1.2rem; text-align:center; font-family:Courier; font-weight: bold; background-color:white;"
                 }));
             }
             isRegistered(id)
@@ -118,7 +118,7 @@ $.ajax({
                   if (isRegistered) {
                       $('body').append($('<p>', {
                           text: conf_alreadyRegisteredErrorMessage,
-                          style: "border-radius: 40px; border-style: solid !important; border-color: #bf0000 !important; margin: 15rem; border: 10px; border-color:red; padding: 10rem; font-size: 1.2rem; text-align:center; font-family:Courier; font-weight: bold; background-color:white;"
+                          style: "border-radius: 40px; background-color: #D3D3D3 !important; margin: 15rem; padding: 10rem; font-size: 1.2rem; text-align:center; font-family:Courier; font-weight: bold; background-color:white;"
                         }));
                   } else {
                       startup();
