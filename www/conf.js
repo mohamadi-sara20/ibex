@@ -22,6 +22,12 @@ var conf_modifyRunningOrder = null;
 var conf_loadingMessage = "Loading...";
 var conf_loadingFatalErrorMessage = "There was an error loading the experiment.";
 var conf_loadingNonfatalErrorMessage = "There was an error loading the experiment. Please try refreshing the page.";
+// *** Added by Sara //
+var conf_alreadyRegisteredErrorMessage = "You are already submitted the experiment.";
+var conf_invalidUrl = "The URL is not valid. No PROLIFIC_PID found.";
+var conf_resultSubmissionFailed = "Results submission failed. Please try again.";
+
+// ***
 
 if (typeof(sendingResultsMessage) != "undefined")
     conf_sendingResultsMessage = sendingResultsMessage;

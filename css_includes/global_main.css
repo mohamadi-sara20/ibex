@@ -6,7 +6,7 @@ body {
     font-size: 4rem;
     font-weight: 600;
     background-position: 10rem;
-    background: "server.py?include=crowd.jpg";
+    background: url(https://img.freepik.com/free-vector/crowd-different-people-seamless-pattern-large-group-citizen-flat-style-with-shadows_90220-154.jpg?w=2000&t=st=1666634801~exp=1666635401~hmac=dd30d9221b1b9afc3f8a7b284cf96709743aa1cce7aec0dc8e228e58faf18564);
     font-family: Courier !important;
 }
 
@@ -133,7 +133,7 @@ span.retry:visited {
 
 #clickMessage{
   margin-top: -2rem;
-  padding-left: 3rem;
+  padding-left: 1rem;
   text-align: left;
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -184,3 +184,4 @@ padding: 1rem;
 width: max-content;
 visibility: hidden;
 }
+

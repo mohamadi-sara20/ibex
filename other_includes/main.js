@@ -6,6 +6,79 @@ for (var _ in { }) {
     assert(false, "ERROR: The JavaScript object namespace has been polluted (perhaps by a library such as prototype.js?)");
 }
 
+// *** Added By Sara ***
+
+var backOrReloadPressed = false
+var serverURL = 'http://37.32.9.104:3001/api'
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(window.location.href);
+    var script = document.createElement("script");
+    script.innerHTML = backPress()
+    document.head.appendChild(script);
+    window.location.hash = "home"
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+function isRegistered(id) {
+    if (!id) {
+        throw "error";
+    }
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": serverURL + "/is-registered?id=" + id.toString(),
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache",
+        }
+    }
+
+    return new Promise((resolve, reject) => {
+        $.ajax(settings).done(function (response) {
+            var isRegistered = response.data;
+            resolve(isRegistered)
+        });
+    })
+}
+
+function register(id) {
+    var settings = {
+        "url": serverURL + "/register",
+        "method": "POST",
+        "type": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({"id": id.toString()}),
+    };
+
+    return new Promise((resolve, reject) => {
+        $.ajax(settings).done(function (response) {
+            resolve(response);
+        });
+    })
+}
+
+
+function backPress(){
+    window.onhashchange = function(url){
+        window.location.reload("true")
+        return  "Your work will be lost.";
+    }
+    window.onbeforeunload = function(url) {
+        window.location.replace(url["oldURL"])
+        return "Your work will be lost.";
+     };  
+}
+
+
+//
+
 $(document).ready(function () {
 
 // Preload chunks.
@@ -33,7 +106,24 @@ $.ajax({
             if (typeof(o) != "object")
                 throw "error";
             setChunks(o);
-            startup();
+            var id = getUrlParameter("PROLIFIC_PID");
+            if (!id) {
+                $('body').append($('<p>', {
+                    text: conf_invalidUrl,
+                    style: "border-radius: 40px; border-style: solid !important; border-color: #bf0000 !important; margin: 15rem; border: 10px; border-color:red; padding: 10rem; font-size: 1.2rem; text-align:center; font-family:Courier; font-weight: bold; background-color:white;"
+                }));
+            }
+            isRegistered(id)
+              .then(function(isRegistered) {
+                  if (isRegistered) {
+                      $('body').append($('<p>', {
+                          text: conf_alreadyRegisteredErrorMessage,
+                          style: "border-radius: 40px; border-style: solid !important; border-color: #bf0000 !important; margin: 15rem; border: 10px; border-color:red; padding: 10rem; font-size: 1.2rem; text-align:center; font-family:Courier; font-weight: bold; background-color:white;"
+                        }));
+                  } else {
+                      startup();
+                  }
+              })
         }
         catch (e) {
             $("<body>").append($("<p>").text(conf_loadingFatalErrorMessage));
@@ -198,11 +288,23 @@ $.widget("ui.__SendResults__", {
 
         sendResults(allResults,
 		    function() {
-                        RESULTS_HAVE_ALREADY_BEEN_SENT = true;
-                        spinSpanShouldBeSpinning = false;
-			t.element.empty().append($("<div>").addClass("sending-results").text(conf_completionMessage));
-			t.options._finishedCallback();
-		    },
+                var id = getUrlParameter("PROLIFIC_PID");
+                //todo handle error
+                register(id)
+                  .then(function (payload) {
+                      RESULTS_HAVE_ALREADY_BEEN_SENT = true;
+                      spinSpanShouldBeSpinning = false;
+                      t.element.empty().append($("<div>").addClass("sending-results").text(conf_completionMessage));
+                      t.options._finishedCallback();
+                  })
+                  .catch(function(err) {
+                      $('body').append($('<p>', {
+                          text: conf_resultSubmissionFailed,
+                          style: "padding: 10px; font-size: 1.2rem;text-align:center; font-weight: bold;"
+                      }));
+                  })
+    
+                    },
 		    function() {
                         spinSpanShouldBeSpinning = false;
 			t.element.empty()
@@ -444,19 +546,19 @@ function showProgressBar() {
         showProgress.css('visibility', "visible");
     }
 }
-
+// Added by Sara - show instructions for the first practice question
 var p_instruction = $(document.createElement("div"))
         .addClass("practice-instruction")
         .css('text-align', conf_centerItems ? "left" : "right")
         .text("Press the space bar to start reading! Each key press reveals the next word in the sentence.");
-$("body").append(p_instruction);  
+$("body").append(p_instruction); 
+var showInst = undefined;
 
 
 var posInRunningOrder = 0;
 var posInCurrentElementSet = 0;
 var currentUtilsInstance = null;
 var currentElementOptions = null;
-var showInst = undefined;
 // A list of result lines.
 var allResults = [];
 // Array for column names.
@@ -509,7 +611,7 @@ function finishedCallback(resultsLines) {
             updateProgressBar();
         }
     }
-    
+    // Added by Sara - show instructions for the first practice question
     if ( showInst === undefined) {
         showInst = 1;
         var inst_box = $('.practice-instruction')
@@ -520,7 +622,7 @@ function finishedCallback(resultsLines) {
         var inst_box = $('.practice-instruction')
         inst_box.css("visibility", "hidden")
     }
-    
+    //
     
     
 

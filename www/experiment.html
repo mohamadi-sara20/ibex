@@ -2,17 +2,6 @@
 <html>
 <head>
     <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8">
-    <script type="text/javascript">
-        window.location.hash = "home";
-        // Again because Google Chrome doesn't insert
-        // the first hash into the history
-        window.location.hash = "again-home"; 
-        window.onhashchange = function(){
-            window.location.hash = "home";
-            return  "Your work will be lost.";
-        }
-        window.onbeforeunload = function() { return "Your work will be lost."; };  
-    </script>
     <!-- JQuery -->
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui.min.js"></script>
