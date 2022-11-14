@@ -32,6 +32,7 @@
         <li>You can advance to the next word by pressing the <b style="color:#bf0000">space bar</b>. </li>
         <li>Every now and then, a question pops up. Please choose the correct answer! Should you choose the wrong answer, we will let you know. Should you choose the right answer though, you will not get any message. </li>
         <li>Please do <b>NOT</b> refresh or go back. In that case, your progress would be lost and you would have to start over. </li>  
+        <li>While reading, you will see a link to the instructions on top of the page, in case you need to refer to them at some point. </li>
       </ol>
     </div>
   </p>
@@ -43,13 +44,15 @@
 
 <table >
   <tr>
-    <td>Name:</td><td><input placeholder="Enter Name"  style="width:100%;font-family:Courier;" name="name" type="text"  class="obligatory" /></td>
+    <td style="margin-bottom:1rem">Name:</td><td><input placeholder="Enter Name"  style="margin-bottom:1rem;width:100%;font-family:Courier;" name="name" type="text"  class="obligatory" />
+      <p style="color:#016064;margin-top:-0.9rem;font-size:0.8rem;font-style:italic;" class="help_text_style">Feel free to put only your first name, your nickname etc. here</p>
+    </td>
   </tr>
   <tr>
     <td colspan="2"><label class="error" for="name"></label></td>
   </tr>
   <tr>
-    <td>Age:</td><td>
+    <td style="margin-bottom:1rem">Age:</td><td>
       <input
       type="text" 
       placeholder="Enter Age" 
@@ -57,8 +60,8 @@
       id="age"  
       maxlength="2" 
       pattern="[0-9]{2}" 
-      style="width:100%" 
       name="age"  
+      style="margin-bottom:1rem !important;"
       class="obligatory" 
       onchange ="myFunction(this.value)" />
       <script>
@@ -73,13 +76,13 @@
     </td>
   </tr>
   <tr>
-    <td>Gender:</td><td>
-      <input name="sex" type="radio" value="F" class="obligatory" id="female" />
-      <label for="female">Female</label>
-      <input name="sex" type="radio" value="M" id="male"/>
-      <label for="male">Male</label>
-      <input name="sex" type="radio" value="O" id="other"/>
-      <label for="other">Other</label>
+    <td style="margin-top:1rem">Gender:</td><td>
+      <input style="margin-top:1rem" name="sex" type="radio" value="F" class="obligatory" id="female" />
+      <label style="margin-top:1rem" for="female">Female</label>
+      <input style="margin-top:1rem" name="sex" type="radio" value="M" id="male"/>
+      <label style="margin-top:1rem" for="male">Male</label>
+      <input style="margin-top:1rem" name="sex" type="radio" value="O" id="other"/>
+      <label style="margin-top:1rem" for="other">Other</label>
   </tr>
   <tr>
     <td colspan="2"><label class="error" for="age"></label></td>
