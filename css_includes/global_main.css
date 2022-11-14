@@ -174,14 +174,13 @@ span.retry:visited {
   margin: 20rem !important;
 }
 
-.practice-instruction-old {
-color:#bf0000;
-font-size: 1rem;
-background-color: #D3D3D3;
-border-radius: 25px;
-padding: 1rem;
-width: max-content;
-visibility: hidden;
+.first-sent {
+  font-size: 1.3rem;
+  color: navy;
+  background-color: #D3D3D3;
+  border-radius: 4px;
+  padding: 2rem;
+
 
 }
 
