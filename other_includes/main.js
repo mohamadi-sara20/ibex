@@ -46,184 +46,6 @@ function isRegistered(id) {
     })
 }
 
-criticals = [
-    ["f", "DashedSentence", {s: "Luis won a prize and invested in new equipment."}],
-    ["f", "DashedSentence", {s: "Luis won a prize and therefore invested in new equipment."}],
-    ["f", "DashedSentence", {s: "Christopher had no money and invested in new equipment."}, "Question",   {q: "Was it financially easy for Christopher to make the investment?", hasCorrect: true, randomOrder: true, as: ["No","Yes"]}],
-    ["f", "DashedSentence", {s: "Christopher had no money and still invested in new equipment."}, "Question",   {q: "What did Christopher invest in?", as: ["new equipment", "new technology"],hasCorrect: true, randomOrder: true,}],
-    ["f", "DashedSentence", {s: "Gabriela was a talented orator and volunteered to give a speech at a wedding."},"Question",   {hasCorrect: true, randomOrder: true,q: "Where did Gabriela volunteer to give a speech?", as: ["at a wedding", "at a reception"]}],
-    ["f", "DashedSentence", {s: "Gabriela was a talented orator and therefore volunteered to give a speech at a wedding."}],
-    ["f", "DashedSentence", {s: "Emily was very shy and volunteered to give a speech at a wedding."}],
-    ["f", "DashedSentence", {s: "Emily was very shy and still volunteered to give a speech at a wedding."},"Question",   {hasCorrect: true, randomOrder: true,q: "Was it contrary to Emily's personality to volunteer to give a speech?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Natalia didn't read the essay questions properly and failed the exam last January."}],
-    ["f", "DashedSentence", {s: "Natalia didn't read the essay questions properly and therefore failed the exam last January."},"Question",   {hasCorrect: true, randomOrder: true,q: "Did Natalia's test-taking skills affect her exam grade?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Samantha studied a lot and failed the exam last January."}],
-    ["f", "DashedSentence", {s: "Samantha studied a lot and still failed the exam last January."}],
-    ["f", "DashedSentence", {s: "Pedro wanted some outdoor exercise and climbed the mountain last weekend."}],
-    ["f", "DashedSentence", {s: "Pedro wanted some outdoor exercise and therefore climbed the mountain last weekend."}],
-    ["f", "DashedSentence", {s: "Brandon was feeling sick and climbed the mountain last weekend."},"Question",   {hasCorrect: true, randomOrder: true,q: "Was Brandon's health conducive to what he did last weekend?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Brandon was feeling sick and still climbed the mountain last weekend."}, "Question",   {hasCorrect: true, randomOrder: true,q: "When did Brandon climb the mountain?", as: ["last weekend", "last week"]}],
-    ["f", "DashedSentence", {s: "Andrea wanted to support the local butcher and had beef for dinner."}, "Question",   {hasCorrect: true, randomOrder: true,q: "When did Andrea have beef?", as: ["for dinner", "for lunch"]}],
-    ["f", "DashedSentence", {s: "Andrea wanted to support the local butcher and therefore had beef for dinner."}],
-    ["f", "DashedSentence", {s: "Brittany was a vegetarian and had beef for dinner."}, "Question",   {hasCorrect: true, randomOrder: true,q: "Was beef an unusual meal for Brittany? ", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Brittany was a vegetarian and still had beef for dinner."}],
-    ["f", "DashedSentence", {s: "Emmanuel wanted to celebrate Halloween and went to a party last night."}],
-    ["f", "DashedSentence", {s: "Emmanuel wanted to celebrate Halloween and therefore went to a party last night."}, "Question", {"q": "When did Emmanuel go to a party?",hasCorrect: true, randomOrder: true, as:["last night", "last week"]}],
-    ["f", "DashedSentence", {s: "David was completely exhausted and went to a party last night."}],
-    ["f", "DashedSentence", {s: "David was completely exhausted and still went to a party last night."},"Question", {hasCorrect: true, randomOrder: true,q: "Did David's energy level clash with his activities last night?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Juliana took a sleeping pill and slept very well last night."}, "Question", {q: "Were Juliana's sleeping pills ineffective?", hasCorrect: true, randomOrder: true,as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Juliana took a sleeping pill and therefore slept very well last night."}],
-    ["f", "DashedSentence", {s: "Taylor had a terrible flu and slept very well last night."}, "Question", {q: "When did Taylor sleep very well?",hasCorrect: true, randomOrder: true, as:["last night", "last week"]}],
-    ["f", "DashedSentence", {s: "Taylor had a terrible flu and still slept very well last night."}],
-    ["f", "DashedSentence", {s: "Felipe outperformed all other participants and won the singing contest last week."}],
-    ["f", "DashedSentence", {s: "Felipe outperformed all other participants and therefore won the singing contest last week."}, "Question", {hasCorrect: true, randomOrder: true,q: "Was the outcome of the competition fair?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Zachary had a sore throat and won the singing contest last week."}],
-    ["f", "DashedSentence", {s: "Zachary had a sore throat and still won the singing contest last week."}],
-    ["f", "DashedSentence", {s: "Renata stumbled over her feet and lost the dance contest this summer."}],
-    ["f", "DashedSentence", {s: "Renata stumbled over her feet and therefore lost the dance contest this summer."}, "Question", {hasCorrect: true, randomOrder: true,q: "When did Renata lose the dance contest?", as: ["this summer", "last summer"]}],
-    ["f", "DashedSentence", {s: "Hannah performed very well and lost the dance contest this summer."}],
-    ["f", "DashedSentence", {s: "Hannah performed very well and still lost the dance contest this summer."}, "Question", {hasCorrect: true, randomOrder: true,q: "Did Hannah perform well at the contest?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Ruben was a natural leader and applied for a chief executive position in June."}],
-    ["f", "DashedSentence", {s: "Ruben was a natural leader and therefore applied for a chief executive position in June."}],
-    ["f", "DashedSentence", {s: "William lacked managerial skills and applied for a chief executive position in June."}, "Question", {hasCorrect: true, randomOrder: true,q:"Was William qualified for the position he applied for?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "William lacked managerial skills and still applied for a chief executive position in June."}],
-    ["f", "DashedSentence", {s: "Destiny found an absolutely perfect sweater and bought it last weekend."}],
-    ["f", "DashedSentence", {s: "Destiny found an absolutely perfect sweater and therefore bought it last weekend."}],
-    ["f", "DashedSentence", {s: "Kayla hated the dress and bought it last weekend."}],
-    ["f", "DashedSentence", {s: "Kayla hated the dress and still bought it last weekend."}, "Question", {hasCorrect: true, randomOrder: true,q: "Does Kayla only buy things she likes?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Caleb loved sailing and took a job as a fisherman in England."}, "Question", {q: "Did Caleb take a job that he was unlikely to enjoy?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Caleb loved sailing and therefore took a job as a fisherman in England."}],
-    ["f", "DashedSentence", {s: "Tony was seasick and took a job as a fisherman in England."}, "Question", {hasCorrect: true, randomOrder: true,q: "Where did Tony take a job as a fisherman?", as: ["in England", "in Scotland"]}],
-    ["f", "DashedSentence", {s: "Tony was seasick and still took a job as a fisherman in England."}],
-    ["f", "DashedSentence", {s: "Sydney went to the gym every day and looked very athletic all year round."}],
-    ["f", "DashedSentence", {s: "Sydney went to the gym every day and therefore looked very athletic all year round."}, "Question", {q:"Did Sydney stay in shape without any effort?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Stephanie never exercised and looked very athletic all year round."}],
-    ["f", "DashedSentence", {s: "Stephanie never exercised and still looked very athletic all year round."}],
-    ["f", "DashedSentence", {s: "Xavier always argued with his parents and didn't pay them a visit all last year."},  "Question", {q:"Was it logical for Xavier to avoid his parents?",hasCorrect: true, randomOrder: true, as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Xavier always argued with his parents and therefore didn't pay them a visit all last year."}],
-    ["f", "DashedSentence", {s: "Robert lived very close to his parents and didn't pay them a visit all last year."}],
-    ["f", "DashedSentence", {s: "Robert lived very close to his parents and still didn't pay them a visit all last year."}],
-    ["f", "DashedSentence", {s: "Kiara loved exotic pets and bought a tarantula last spring."}],
-    ["f", "DashedSentence", {s: "Kiara loved exotic pets and therefore bought a tarantula last spring."}],
-    ["f", "DashedSentence", {s: "Rachel was afraid of spiders and bought a tarantula last spring."},"Question", {hasCorrect: true, randomOrder: true,q: "Did Rachel choose a pet that made her feel uncomfortable?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Rachel was afraid of spiders and still bought a tarantula last spring."},"Question", {hasCorrect: true, randomOrder: true,q: "When did Rachel buy a tarantula? ", as: ["last spring", "last summer"]}],
-    ["f", "DashedSentence", {s: "George wanted to help animals and decided to become a vet at age twenty."}],
-    ["f", "DashedSentence", {s: "George wanted to help animals and therefore decided to become a vet at age twenty."}],
-    ["f", "DashedSentence", {s: "Kyle had a cat allergy and decided to become a vet at age twenty."},"Question", {q: "At what age did Kyle decide to become a vet?",hasCorrect: true, randomOrder: true, as:["twenty", "thirty"]}],
-    ["f", "DashedSentence", {s: "Kyle had a cat allergy and still decided to become a vet at age twenty."},"Question", {q: "Did Kyle's allergy impact his career choice?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Tiana was an adrenaline junkie and took up free-climbing last summer."},"Question", {hasCorrect: true, randomOrder: true,q:"Did free-climbing suit Tiana's personality?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Tiana was an adrenaline junkie and therefore took up free-climbing last summer."}, "Question", {hasCorrect: true, randomOrder: true,q: "When did Tiana take up free-climbing?", as: ["last summer", "this summer"]}],
-    ["f", "DashedSentence", {s: "Nicole was scared of heights and took up free-climbing last summer."}],
-    ["f", "DashedSentence", {s: "Nicole was scared of heights and still took up free-climbing last summer."}],
-    ["f", "DashedSentence", {s: "Emmanuel was allergic to hops and never had a beer in his life."}],
-    ["f", "DashedSentence", {s: "Emmanuel was allergic to hops and therefore never had a beer in his life."},"Question", {hasCorrect: true, randomOrder: true,q: "Did Emmanuel avoid beer because of its taste?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Alfred was German and never had a beer in his life."}],
-    ["f", "DashedSentence", {s: "Alfred was German and still never had a beer in his life."}],
-    ["f", "DashedSentence", {s: "Farrah hated Italian food and never had pasta for lunch."}],
-    ["f", "DashedSentence", {s: "Farrah hated Italian food and therefore never had pasta for lunch."}, "Question", {hasCorrect: true, randomOrder: true,q: "Did Farrah avoid pasta for health reasons?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Alexa was Italian and never had pasta for lunch."}],
-    ["f", "DashedSentence", {s: "Alexa was Italian and still never had pasta for lunch."}],
-    ["f", "DashedSentence", {s: "Edward was a gun enthusiast and purchased weapons from an online store."},"Question", {hasCorrect: true, randomOrder: true,q: "Where did Edward purchase weapons?", as: ["from an online store","from a smuggler"] }],
-    ["f", "DashedSentence", {s: "Edward was a gun enthusiast and therefore purchased weapons from an online store."}],
-    ["f", "DashedSentence", {s: "Cody was a peace activist and purchased weapons from an online store."}, "Question", {hasCorrect: true, randomOrder: true,q: "Was purchasing weapons contradictory to Cody's ideology?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Cody was a peace activist and still purchased weapons from an online store."}],
-    ["f", "DashedSentence", {s: "Betty didn't believe in global warming and protested against Greenpeace last week."}, "Question", {hasCorrect: true, randomOrder: true,q: "When did Betty protest against Greenpeace?", as: ["last week", "last month"]}],
-    ["f", "DashedSentence", {s: "Betty didn't believe in global warming and therefore protested against Greenpeace last week."}, "Question", {hasCorrect: true, randomOrder: true,q: "When did Betty protest against Greenpeace?", as: ["last week", "last month"]}],
-    ["f", "DashedSentence", {s: "Amber was an environmentalist and protested against Greenpeace last week."}],
-    ["f", "DashedSentence", {s: "Amber was an environmentalist and still protested against Greenpeace last week."},"Question", {hasCorrect: true, randomOrder: true,q: "Was protesting against Greenpeace compatible with Amber's ideology?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Frank was an experienced chauffeur and easily found a job as a delivery driver this summer."}, "Question", {q: "Did Frank's past experience hinder him in finding a job?", hasCorrect: true, randomOrder: true,as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Frank was an experienced chauffeur and therefore easily found a job as a delivery driver this summer."}],
-    ["f", "DashedSentence", {s: "Cory had no driver's license and easily found a job as a delivery driver this summer."}],
-    ["f", "DashedSentence", {s: "Cory had no driver's license and still easily found a job as a delivery driver this summer."},"Question", {hasCorrect: true, randomOrder: true,q: "When did Cory find a job as a delivery driver?", as: ["this summer", "this spring"]}],
-    ["f", "DashedSentence", {s: "Dorothy had extensive experience with toddlers and was hired as a nursery assistant last year."}],
-    ["f", "DashedSentence", {s: "Dorothy had extensive experience with toddlers and therefore was hired as a nursery assistant last year."}, "Question", {q: "Did Dorothy's experience help her find a job?", hasCorrect: true, randomOrder: true,as:["Yes","No"]}],
-    ["f", "DashedSentence", {s: "Courtney despised children and was hired as a nursery assistant last year."}],
-    ["f", "DashedSentence", {s: "Courtney despised children and still was hired as a nursery assistant last year."}],
-    ["f", "DashedSentence", {s: "Harold loved dissecting literature and signed a contract as a literary critic in August."}],
-    ["f", "DashedSentence", {s: "Harold loved dissecting literature and therefore signed a contract as a literary critic in August."},"Question", {q: "Was Harold's profession in line with his personal interests?", hasCorrect: true, randomOrder: true,as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Brian didn't enjoy reading and signed a contract as a literary critic in August."}],
-    ["f", "DashedSentence", {s: "Brian didn't enjoy reading and still signed a contract as a literary critic in August."}],
-    ["f", "DashedSentence", {s: "Helen wanted to keep up with technology and bought the newest laptop last winter."}, "Question", {q: "When did Helen buy the laptop?",hasCorrect: true, randomOrder: true, as:["this winter", "last winter"]}],
-    ["f", "DashedSentence", {s: "Helen wanted to keep up with technology and therefore bought the newest laptop last winter."}],
-    ["f", "DashedSentence", {s: "Rebecca was a complete technophobe and bought the newest laptop last winter."}, "Question", {q:"Was it typical for Rebecca to buy the newest laptop?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Rebecca was a complete technophobe and still bought the newest laptop last winter."}],
-    ["f", "DashedSentence", {s: "Billy was under strong peer pressure and took up smoking a year ago."}],
-    ["f", "DashedSentence", {s: "Billy was under strong peer pressure and therefore took up smoking a year ago."}],
-    ["f", "DashedSentence", {s: "Jose was very health-conscious and took up smoking a year ago."}, "Question", {q: "When did Jose take up smoking?",hasCorrect: true, randomOrder: true, as:["a year ago", "a month ago"]}],
-    ["f", "DashedSentence", {s: "Jose was very health-conscious and still took up smoking a year ago."},"Question", {q: "Was smoking inconsistent with Jose's lifestyle?",hasCorrect: true, randomOrder: true, as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Eugene wanted to spread his religion and became a priest at age thirty."}, "Question", {q: "Did Eugene's ideals influence his career choice?", hasCorrect: true, randomOrder: true,as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Eugene wanted to spread his religion and therefore became a priest at age thirty."}, "Question", {q: "At what age did Eugene become a priest?",hasCorrect: true, randomOrder: true, as:["thirty", "twenty"]}],
-    ["f", "DashedSentence", {s: "Tim was an atheist and became a priest at age thirty."}],
-    ["f", "DashedSentence", {s: "Tim was an atheist and still became a priest at age thirty."}, "Question", {q: "At what age did Tim become a priest?",hasCorrect: true, randomOrder: true, as:["thirty", "twenty"]}],
-    ["f", "DashedSentence", {s: "Alice enjoyed new sporting challenges and ran her first marathon last month."}],
-    ["f", "DashedSentence", {s: "Alice enjoyed new sporting challenges and therefore ran her first marathon last month."}, "Question", {hasCorrect: true, randomOrder: true,q:"Was Alice forced to run her first marathon?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Danielle had a sprained ankle and ran her first marathon last month."}, "Question", {q: "When did Danielle run her first marathon?", hasCorrect: true, randomOrder: true,as:["last month", "last week"]}],
-    ["f", "DashedSentence", {s: "Danielle had a sprained ankle and still ran her first marathon last month."}],
-    ["f", "DashedSentence", {s: "Barbara spent a lot of time preparing and delivered an excellent speech at the conference."}, "Question", {q: "Was it worth Barbara's time to prepare for the speech?",hasCorrect: true, randomOrder: true, as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Barbara spent a lot of time preparing and therefore delivered an excellent speech at the conference."}, "Question", {q: "Where did Barbara deliver a speech?", hasCorrect: true, randomOrder: true,as:["at the conference", "at the workshop"]}],
-    ["f", "DashedSentence", {s: "Jasmin was drunk and delivered an excellent speech at the conference."}],
-    ["f", "DashedSentence", {s: "Jasmin was drunk and still delivered an excellent speech at the conference."}],
-    ["f", "DashedSentence", {s: "Gerald wanted to raise funds for a charity and gave a piano concert last night."}],
-    ["f", "DashedSentence", {s: "Gerald wanted to raise funds for a charity and therefore gave a piano concert last night."}],
-    ["f", "DashedSentence", {s: "Patrick had a broken arm and gave a piano concert last night."}, "Question", {hasCorrect: true, randomOrder: true,q: "Was Patrick's health conducive to his performance?", as: ["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Patrick had a broken arm and still gave a piano concert last night."}, "Question", {q: "When did Patrick give a piano concert?",hasCorrect: true, randomOrder: true, as:["last night", "last week"]}],
-    ["f", "DashedSentence", {s: "Joan had perfect pitch and was hired as a music critic for a local newspaper."}, "Question", {q: "Who hired Joan?",hasCorrect: true, randomOrder: true, as:["a local newspaper","a major newspaper"]}],
-    ["f", "DashedSentence", {s: "Joan had perfect pitch and therefore was hired as a music critic for a local newspaper."}],
-    ["f", "DashedSentence", {s: "Katherine couldn't read music and was hired as a music critic for a local newspaper."}],
-    ["f", "DashedSentence", {s: "Katherine couldn't read music and still was hired as a music critic for a local newspaper."}, "Question", {hasCorrect: true, randomOrder: true,q: "Was Katherine unqualified for her job?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Ivan was fluent in several languages and worked as an interpreter in his student days."}, "Question", {q: "Was Ivan predisposed to work as an interpreter?", hasCorrect: true, randomOrder: true,as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Ivan was fluent in several languages and therefore worked as an interpreter in his student days."}],
-    ["f", "DashedSentence", {s: "Hartmut wasn't good at languages and worked as an interpreter in his student days."}],
-    ["f", "DashedSentence", {s: "Hartmut wasn't good at languages and still worked as an interpreter in his student days."}],
-    ["f", "DashedSentence", {s: "Doris was an introvert and couldn't find a partner when she was younger."}],
-    ["f", "DashedSentence", {s: "Doris was an introvert and therefore couldn't find a partner when she was younger."}, "Question", {q: "Did Doris' personality facilitate her love life? ", hasCorrect: true, randomOrder: true,as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Alexandra was very attractive and couldn't find a partner when she was younger."}],
-    ["f", "DashedSentence", {s: "Alexandra was very attractive and still couldn't find a partner when she was younger."}],
-    ["f", "DashedSentence", {s: "Albert had heavy family obligations and never left his village in his life."}, "Question",{q: "Did Albert have the freedom to leave his village?", hasCorrect: true, randomOrder: true,as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Albert had heavy family obligations and therefore never left his village in his life."}],
-    ["f", "DashedSentence", {s: "Shaun was extremely open-minded and never left his village in his life."}],
-    ["f", "DashedSentence", {s: "Shaun was extremely open-minded and still never left his village in his life."}],
-    ["f", "DashedSentence", {s: "Rosemary wanted to lose weight and committed to regular running with the group."}],
-    ["f", "DashedSentence", {s: "Rosemary wanted to lose weight and therefore committed to regular running with the group."}],
-    ["f", "DashedSentence", {s: "Morgan was a couchpotato and committed to regular running with the group."},"Question", {q: "Did Morgan's lifestyle facilitate her new commitment?",hasCorrect: true, randomOrder: true, as:["No", "Yes"] }],
-    ["f", "DashedSentence", {s: "Morgan was a couchpotato and still committed to regular running with the group."}],
-    ["f", "DashedSentence", {s: "The lawyer didn't show up for court and lost two cases last week."}],
-    ["f", "DashedSentence", {s: "The lawyer didn't show up for court and therefore lost two cases last week."}],
-    ["f", "DashedSentence", {s: "Jeremy was an experienced lawyer and lost two cases last week."}, "Question", {q: "When did Jeremy lose two cases?", hasCorrect: true, randomOrder: true,as:["last week", "last year"]}],
-    ["f", "DashedSentence", {s: "Jeremy was an experienced lawyer and still lost two cases last week."}, "Question", {q: "Did Jeremy lose the cases because of his level of experience?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Ruth had forgotten her scarf and was freezing during the trip."}, "Question", {q: "Was Ruth comfortable without her scarf?", hasCorrect: true, randomOrder: true,as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Ruth had forgotten her scarf and therefore was freezing during the trip."}, "Question", {q:"When was Ruth freezing?",hasCorrect: true, randomOrder: true, as:["during the trip", "during the talk"]}],
-    ["f", "DashedSentence", {s: "Melissa was wearingher warmest jacket and was freezing during the trip."}],
-    ["f", "DashedSentence", {s: "Melissa was wearingher warmest jacket and still was freezing during the trip."}, "Question", {q: "When was Melissa freezing?", hasCorrect: true, randomOrder: true,as:["during the trip", "during the talk"]}],
-    ["f", "DashedSentence", {s: "Lawrence wanted to save people's lives and decided to be a surgeon at a hospital."}],
-    ["f", "DashedSentence", {s: "Lawrence wanted to save people's lives and therefore decided to be a surgeon at a hospital."}, "Question", {q:"Did Lawrence's career fulfill his personal aspiration?", hasCorrect: true, randomOrder: true,as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Jesse couldn't tolerateblood and decided to be a surgeon at a hospital."}],
-    ["f", "DashedSentence", {s: "Jesse couldn't tolerateblood and still decided to be a surgeon at a hospital."}],
-    ["f", "DashedSentence", {s: "Dolores was craving Indian food and had curry last night."}, "Question", {q: "When did Dolores have curry?",hasCorrect: true, randomOrder: true, as:["last night", "this night"]}],
-    ["f", "DashedSentence", {s: "Dolores was craving Indian food and therefore had curry last night."}],
-    ["f", "DashedSentence", {s: "Sofia couldn't stand spicy dishes and had curry last night."}],
-    ["f", "DashedSentence", {s: "Sofia couldn't stand spicy dishes and still had curry last night."}, "Question", {q: "Was curry the ideal meal for Sofia?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Leonard was hungry and ate a whole pizza for lunch."}],
-    ["f", "DashedSentence", {s: "Leonard was hungry and therefore ate a whole pizza for lunch."}, "Question", {q: "When did Leonard eat a whole pizza?",hasCorrect: true, randomOrder: true,as:["for lunch", "for dinner"]}],
-    ["f", "DashedSentence", {s: "Juan was nauseous and ate a whole pizza for lunch."}, "Question", {q:"Was Juan's lunch incompatible with his health?",hasCorrect: true, randomOrder: true, as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Juan was nauseous and still ate a whole pizza for lunch."}],
-    ["f", "DashedSentence", {s: "Frances was eager for feedback and engaged in a friendly chat with the customers."}],
-    ["f", "DashedSentence", {s: "Frances was eager for feedback and therefore engaged in a friendly chat with the customers."}],
-    ["f", "DashedSentence", {s: "Monica was in a bad mood and engaged in a friendly chat with the customers."},"Question", {hasCorrect: true, randomOrder: true,q: "With whom did Monica engage in a friendly chat?", as: ["with the customers", "with the visitors"]}],
-    ["f", "DashedSentence", {s: "Monica was in a bad mood and still engaged in a friendly chat with the customers."}, "Question", {q: "Did Monica manage to overcome her mood at work?", hasCorrect: true, randomOrder: true,as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Marvin wanted to travel to Paris and signed up for French lessons last winter."}, "Question", {hasCorrect: true, randomOrder: true,q: "Did Marvin prepare for his trip to Paris?", as: ["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Marvin wanted to travel to Paris and therefore signed up for French lessons last winter."}],
-    ["f", "DashedSentence", {s: "Pierre was a native and signed up for French lessons last winter."}],
-    ["f", "DashedSentence", {s: "Pierre was a native and still signed up for French lessons last winter."}, "Question", {q: "When did Pierre sign up for French lessons?", hasCorrect: true, randomOrder: true,as:["last winter", "last summer"]}],
-    ["f", "DashedSentence", {s: "Joyce needed to burn some calories and went for a jog along the beachfront."}, "Question", {q: "Where did Joyce go for a jog?", hasCorrect: true, randomOrder: true,as:["along the beachfront", "along the river"]}],
-    ["f", "DashedSentence", {s: "Joyce needed to burn some calories and therefore went for a jog along the beachfront."}, "Question", {q: "Did Joyce go for a jog for fun?",hasCorrect: true, randomOrder: true, as:["No", "Yes"]}],
-    ["f", "DashedSentence", {s: "Valeria had a badstomach ache and went for a jog along the beachfront."}],
-    ["f", "DashedSentence", {s: "Valeria had a badstomach ache and still went for a jog along the beachfront."}],
-    ["f", "DashedSentence", {s: "Bernard had a dull sense of humor and never made anybody laugh during his shows."}],
-    ["f", "DashedSentence", {s: "Bernard had a dull sense of humor and therefore never made anybody laugh during his shows."}],
-    ["f", "DashedSentence", {s: "Travis was a comedian and never made anybody laugh during his shows."}, "Question", {q: "Was Travis a rather unsuccessful comedian?",hasCorrect: true, randomOrder: true, as:["Yes", "No"]}],
-    ["f", "DashedSentence", {s: "Travis was a comedian and still never made anybody laugh during his shows."}]
-]
 
 function getCount(id) {
     if (!id) {
@@ -554,32 +376,6 @@ function startup() {
     assert(typeof (items) != "undefined", "You must define the 'items' variable.");
     assert_is_arraylike(items, "The 'items' variable must be set to an Array.");
 
-// firstHalf = []
-// secondHalf = []
-
-// for (let i=0; i < criticals.length; i++){
-//     if (i%2 == 0){
-//         firstHalf.push(criticals[i])
-//     }
-//     else secondHalf.push(criticals[i])
-// }
-
-
-// var id = getUrlParameter("PROLIFIC_PID");
-// var count = -1;
-// var userCountPromise = getCount(id)
-
-// userCountPromise.then((value) => {
-//         count = value
-//         if (count > -1){
-//             if(count%2 == 0) items = [...items, firstHalf]
-//             else items = [...items, secondHalf]
-//         }
-//         else throw "error"
-
-// }).catch(err => alert("Failed to contact server"));
-
-
     function getUrlParameter(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -598,12 +394,9 @@ function startup() {
     userCountPromise.then((value) => {
         count = value
         if (count > -1) {
-            // console.log("!!!!!!")
             if (count % 2 == 0) items = firstHalf.concat(items)
             else items = secondHalf.concat(items)
-
             // console.log("ITEMS >>>>>>>>>>>> ",items);
-
             var listOfElementSets = [];
             var itemNumber = 0;
             $.each(items, function (_, it) {
