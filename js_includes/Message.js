@@ -79,9 +79,14 @@ jqueryWidget: {
         }
         else if (this.transfer == "keypress") {
             var t = this;
-            this.safeBind($(document), 'keydown', function () {
-                t.finishedCallback(null);
-                return false;
+            this.safeBind($(document), 'keydown', function (e) {
+                if (e.keyCode == 32) {
+                    t.finishedCallback(null);
+                    return false;
+                }
+                else {
+                    return true;
+                }
             });
         }
         else if (typeof(this.transfer) == "number") {
