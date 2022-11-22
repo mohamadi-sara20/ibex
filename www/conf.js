@@ -6,7 +6,7 @@
 
 // Variables common to all experiments.
 var conf_sendingResultsMessage = " Sending results to server...";
-var conf_completionMessage = "The results were successfully sent to the server. Thanks! You will be redirected to Prolific shortly!";
+var conf_completionMessage = "The results were successfully sent to the server. Thanks! Please wait! You will be redirected to Prolific shortly!";
 var conf_completionErrorMessage = "There was an error sending the results to the server.";
 var conf_pageTitle = "Experiment";
 var conf_shuffleSequence = seq(equalTo0, rshuffle(lessThan0, greaterThan0));
