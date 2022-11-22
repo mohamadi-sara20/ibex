@@ -380,6 +380,10 @@ for (var _ in { }) {
                   spinSpanShouldBeSpinning = false;
                   t.element.empty().append($("<div>").addClass("sending-results").text(conf_completionMessage));
                   t.options._finishedCallback();
+                //   setTimeout(function() {
+                //     window.location.replace('https://app.prolific.co/submissions/');
+                // }, 5000);
+
                 })
                 .catch(function (err) {
                   $('body').append($('<p>', {
