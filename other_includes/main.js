@@ -440,8 +440,10 @@ for (var _ in { }) {
     userCountPromise.then((value) => {
       count = value
       if (count > -1) {
-        if (count % 2 == 0) items = firstHalf.concat(items)
-        else items = secondHalf.concat(items)
+        // if (count % 2 == 0) items = firstHalf.concat(items)
+        // else items = secondHalf.concat(items)
+        items = firstHalf.concat(items)
+        // items = secondHalf.concat(items)
         // console.log("ITEMS >>>>>>>>>>>> ",items);
         var listOfElementSets = [];
         var itemNumber = 0;
